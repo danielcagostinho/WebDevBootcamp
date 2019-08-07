@@ -1,0 +1,18 @@
+body {
+  background: pink;
+}
+
+h1 {
+  color: red;
+  border: 5px solid purple;
+}
+
+h4 {
+  color: cornflowerBlue;
+  background-color: rgb(255, 100, 80);
+  border: 8px dashed red;
+}
+
+li {
+  color: green;
+}

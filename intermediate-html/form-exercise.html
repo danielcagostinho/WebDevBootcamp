@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!-->
+<html class="no-js">
+  <!--<![endif]-->
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>Form Exercise</title>
+    <meta name="description" content="" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="" />
+  </head>
+  <body>
+    <h1>Register</h1>
+    <form>
+      <div>
+        <label for="name">First Name:</label>
+        <input id="name" type="text" placeholder="John" required />
+        <label for="name">Last Name:</label>
+        <input id="name" type="text" placeholder="Smith" required />
+      </div>
+
+      <div>
+        <label for="male">Male:</label>
+        <input id="male" name="gender" type="radio" checked />
+        <label for="female">Female:</label>
+        <input id="female" name="gender" type="radio" />
+        <label for="other">Other:</label>
+        <input id="other" name="gender" type="radio" />
+      </div>
+
+      <div>
+        <label for="email">Email:</label>
+        <input
+          id="email"
+          type="email"
+          placeholder="johnsmith@domain.com"
+          required
+        />
+        <label for="password">Password:</label>
+        <input
+          id="password"
+          type="password"
+          pattern=".{5,10}"
+          required
+          title="5 to 10 characters"
+        />
+      </div>
+      <label>Birthday</label>
+      <select name="month" id="birthday-month">
+        <option>Month</option>
+        <option>January</option>
+        <option>February</option>
+        <option>March</option>
+        <option>April</option>
+        <option>May</option>
+        <option>June</option>
+        <option>July</option>
+        <option>August</option>
+        <option>September</option>
+        <option>October</option>
+        <option>November</option>
+        <option>December</option>
+      </select>
+      <select name="day" id="birthday-day">
+        <option>Day</option>
+        <option>1</option>
+        <option>2</option>
+        <option>3</option>
+        <option>4</option>
+        <option>5</option>
+        <option>6</option>
+        <option>7</option>
+        <option>8</option>
+        <option>9</option>
+        <option>10</option>
+        <option>12</option>
+        <option>13</option>
+        <option>14</option>
+        <option>15</option>
+        <option>16</option>
+        <option>17</option>
+        <option>18</option>
+        <option>19</option>
+        <option>20</option>
+        <option>21</option>
+        <option>22</option>
+        <option>24</option>
+        <option>25</option>
+        <option>26</option>
+        <option>27</option>
+        <option>28</option>
+        <option>29</option>
+        <option>30</option>
+        <option>31</option>
+      </select>
+      <select name="year" id="birthday-year">
+        <option>Year</option>
+        <option>2019</option>
+        <option>2018</option>
+        <option>2017</option>
+        <option>2016</option>
+        <option>2015</option>
+      </select>
+      <br />
+      <label for="terms">I agree to the terms and conditions: </label>
+      <input id="terms" type="checkbox" />
+      <br />
+      <input type="submit" value="Submit" />
+    </form>
+    <script src="" async defer></script>
+  </body>
+</html>

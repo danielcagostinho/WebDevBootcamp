@@ -1,0 +1,19 @@
+* {
+  border: 1px solid lightblue;
+}
+
+ul li a {
+  text-decoration: none;
+}
+
+h4 + ul {
+  border: 4px solid red;
+}
+
+a[href="https://www.google.com"] {
+  color: red;
+}
+
+ul:nth-of-type(3) {
+  background: lightgrey;
+}
