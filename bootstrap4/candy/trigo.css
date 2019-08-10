@@ -1,0 +1,61 @@
+body {
+  background: url("./trigo/black.png");
+  font-family: "Nunito", sans-serif;
+}
+
+.blurb h2 {
+  color: rgb(128, 108, 0);
+  font-weight: 100;
+  font-size: 2.5rem;
+}
+
+.blurb td {
+  color: white;
+  font-weight: 100;
+  font-size: 1.123rem;
+  line-height: 2;
+}
+.blurb p {
+  color: white;
+  font-weight: 100;
+  font-size: 1.123rem;
+  line-height: 2;
+}
+.content {
+  margin-top: 100px;
+}
+
+#main-navbar {
+  font-size: 1.5rem;
+  font-weight: 100;
+}
+#main-navbar .nav-link {
+  color: white;
+}
+#main-navbar .nav-link:hover {
+  color: #aaa;
+}
+
+#main-navbar .navbar-brand {
+  color: white;
+  font-size: 1.5rem;
+}
+
+.logo {
+  width: 100%;
+}
+
+.img-panel {
+  width: 100%;
+}
+
+.navbar.scrolled {
+  background-color: rgb(128, 108, 0);
+  transition: background 600ms;
+}
+
+@media (max-width: 1200px) {
+  #heading-group h1 {
+    font-size: 3rem;
+  }
+}
