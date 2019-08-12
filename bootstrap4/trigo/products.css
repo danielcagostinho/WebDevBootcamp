@@ -1,5 +1,5 @@
 body {
-  background: url("./trigo/black.png");
+  background: url("./imgs/black.png");
   font-family: "Nunito", sans-serif;
 }
 
@@ -42,7 +42,7 @@ body {
 }
 
 .logo {
-  width: 100%;
+  width: 80%;
 }
 
 .img-panel {
@@ -52,6 +52,10 @@ body {
 .navbar.scrolled {
   background-color: rgb(128, 108, 0);
   transition: background 600ms;
+}
+
+#heading-group {
+  background: url("./imgs/table.jpg");
 }
 
 @media (max-width: 1200px) {
