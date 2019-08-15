@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!-->
+<html class="no-js">
+  <!--<![endif]-->
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>jQuery Selector Exercise</title>
+    <meta name="description" content="" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+    rel="stylesheet">
+    <link rel="stylesheet" href="methods.css" />
+  </head>
+  <body>
+    <nav id="main-navbar" class="navbar navbar-expand-md navbar-light bg-light fixed-top">
+        <a class="navbar-brand" href="./../index.html">DA</a>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-toggle="collapse"
+          data-target="#navbarSupportedContent"
+          aria-controls="navbarSupportedContent"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+  
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav mr-auto">
+            <li class="nav-item active">
+              <a class="nav-link" href="./../index.html#home"
+                >Home <span class="sr-only">(current)</span></a
+              >
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="./../index.html#about">About</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="./../index.html#projects">Projects</a>
+            </li>
+          </ul>
+        </div>
+      </nav>
+      <div class="main">
+
+        <div class="header">
+          <h1 class="text-center">jQuery Demo Page</h1>
+        </div>
+        <div class="jumbotron text-center">
+      <div class="fade-out">
+        <h2 id="sentence"><em>Lorem</em> <span class="red-text">ipsum</span> <strong>dolor</strong> sit <span class="strikethrough">amet</span>.</h2>
+      </div> 
+      <img id="display-image" src="https://img.pokemondb.net/sprites/x-y/normal/jolteon.png">
+      <p id="display-text" class="lead mt-3">*******</p>
+    </div>
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-4 mb-3">
+          <div class="card">
+            <div class="card-body d-flex flex-column text-center">
+              <h5 class="card-title text-center">.text()</h5>
+              <p class="card-text">Get the combined text contents of each element in the set of matched elements, including their descendants, or set the text contents of the matched elements.</p>
+              <p>Click the button to retrieve the text in the message above.</p>                
+              <button id="text-button" href="#" class="btn btn-primary mt-auto mt-auto">Demo</button>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-4 mb-3">
+          <div class="card">
+            <div class="card-body d-flex flex-column text-center">
+              <h5 class="card-title text-center">.html()</h5>
+              <p class="card-text">Get the HTML contents of the first element in the set of matched elements or set the HTML contents of every matched element.</p>
+              <p>Click the button to retrieve the html in the message above.</p>  
+              <button id="html-button" href="#" class="btn btn-primary mt-auto">Demo</button>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-4 mb-3">
+            <div class="card">
+              <div class="card-body d-flex flex-column text-center">
+                <h5 class="card-title text-center">.css()</h5>
+                <p class="card-text">Get the value of a computed style property for the first element in the set of matched elements or set one or more CSS properties for every matched element.</p>
+                <p>Click the button to temporarily add a class to the jumbotron
+                  sentence.</p>
+                  <button id="css-button" class="btn btn-primary mt-auto">Demo</button>
+                </div>
+            </div>
+          </div>
+          <div class="col-lg-4 mb-3">
+            <div class="card">
+              <div class="card-body d-flex flex-column text-center">
+                <h5 class="card-title text-center">.attr()</h5>
+                <p class="card-text">Get the value of an attribute for the first element in the set of matched elements or set one or more attributes for every matched element.</p>
+                <p>Click the button to change the src attribute of the img above.</p>
+                <button id="attr-button" href="#" class="btn btn-primary mt-auto">Demo</button>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-4 mb-3">
+            <div class="card">
+              <div class="card-body d-flex flex-column text-center">
+                <h5 class="card-title text-center">.val()</h5>
+                <p class="card-text">Get the current value of the first element in the set of matched elements or set the value of every matched element.</p>
+                <p>Enter some text into the input below and click the button to retrieve the value of the input.</p>
+                <input class="text-center mb-3" type="text" placeholder="Enter some text!">
+                <button id="val-button" href="#" class="btn btn-primary mt-auto">Demo</button>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-4 mb-3">
+            <div class="card">
+              <div class="card-body d-flex flex-column text-center">
+                <h5 class="card-title text-center">.addClass()</h5>
+                <p class="card-text">Adds the specified class(es) to each element in the set of matched elements.</p>
+                <p>Click the button to add a class of "faded-text" to the message above.</p>
+                <button id="add-class-button" href="#" class="btn btn-primary mt-auto ">Demo</button>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-4 mb-3">
+            <div class="card">
+              <div class="card-body d-flex flex-column text-center">
+                <h5 class="card-title text-center">.removeClass()</h5>
+                <p class="card-text">Remove a single class, multiple classes, or all classes from each element in the set of matched elements.</p>
+                <p>Click the button to remove the class of "faded-text" from the message above.</p>
+                <button id="remove-class-button" href="#" class="btn btn-primary mt-auto disabled" >Demo</button>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-4 mb-3">
+            <div class="card">
+              <div class="card-body d-flex flex-column text-center">
+                <h5 class="card-title text-center">.toggleClass()</h5>
+                <p class="card-text">Add or remove one or more classes from each element in the set of matched elements, depending on either the class’s presence or the value of the state argument.</p>
+                <p>Click the button to toggle the class of "faded-text" on the message above.</p>
+                <button id="toggle-class-button" href="#" class="btn btn-primary mt-auto" >Demo</button>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-4 mb-3">
+            <div class="card">
+              <div class="card-body d-flex flex-column text-center">
+                <h5 class="card-title text-center">.keypress()</h5>
+                <p class="card-text">Bind an event handler to the “keypress” JavaScript event, or trigger that event on an element.</p>
+                <p>Click the 'a' key to animate the message above.</p>
+                <i class="material-icons">keyboard</i>
+                <input id="keypress-input" type="text">
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-4 mb-3">
+            <div class="card">
+              <div class="card-body d-flex flex-column text-center">
+                <h5 class="card-title text-center">.on("mouseenter")</h5>
+                <p class="card-text">Bind an event handler to be fired when the mouse enters an element, or trigger that handler on an element.</p>
+                <p>Hover over the sentence to change the css.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    </div>
+    <script
+    src="https://code.jquery.com/jquery-3.4.1.min.js"
+    integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+    crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="methods.js"></script>
+  </body>
+</html>

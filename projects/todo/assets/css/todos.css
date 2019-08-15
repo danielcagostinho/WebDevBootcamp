@@ -1,0 +1,91 @@
+body {
+  font-family: "Roboto", sans-serif;
+  background: -webkit-linear-gradient(90deg, #ed4264 10%, #ffedbc 90%);
+  background: -moz-linear-gradient(90deg, #ed4264 10%, #ffedbc 90%);
+  background: -ms-linear-gradient(90deg, #ed4264 10%, #ffedbc 90%);
+  background: -o-linear-gradient(90deg, #ed4264 10%, #ffedbc 90%);
+  background: linear-gradient(90deg, #ed4264 10%, #ffedbc 90%);
+}
+
+h1 {
+  background-color: #ed4264;
+  color: white;
+  margin: 0;
+  padding: 10px 20px;
+  text-transform: uppercase;
+  font-size: 24px;
+  font-weight: normal;
+}
+
+input {
+  font-size: 18px;
+  background-color: #f7f7f7;
+  width: 100%;
+  padding: 13px 13px 13px 20px;
+  box-sizing: border-box;
+  color: #ed4264;
+}
+
+input:focus {
+  background-color: white;
+  border: 2px solid #ed4264;
+  outline: none;
+}
+
+span {
+  margin-right: 20px;
+  height: 40px;
+  text-align: center;
+  width: 40px;
+  display: inline-block;
+}
+
+#main ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+#main li {
+  background-color: white;
+  height: 40px;
+  line-height: 35px;
+  color: #666;
+}
+
+#main li:hover span {
+  width: 40px;
+}
+
+#main li:nth-child(2n) {
+  background-color: #f7f7f7;
+}
+
+.completed {
+  color: gray;
+  text-decoration: line-through;
+}
+
+.material-plus {
+  float: right;
+}
+
+.material-icons.md-30 {
+  font-size: 30px;
+  padding: 0px;
+}
+
+#container {
+  width: 360px;
+  margin: 100px auto;
+  background-color: #f7f7f7;
+  box-shadow: 0 0 3px rgba(0, 0, 0, 0.1);
+}
+
+#main {
+  margin-top: 60px;
+}
+
+#main-navbar {
+  text-transform: uppercase;
+}

@@ -1,0 +1,18 @@
+canvas {
+  width: 100%;
+  background-color: black;
+}
+
+body,
+html {
+  height: 100%;
+  margin: 0;
+}
+
+.main {
+  padding-top: 60px;
+}
+
+nav {
+  text-transform: uppercase;
+}
