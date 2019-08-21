@@ -1,3 +1,4 @@
+var classEnabled = false;
 $("#text-button").click(function() {
   $("#display-text").text(".text(): " + $("#sentence").text());
 });
@@ -40,6 +41,7 @@ $("#val-button").click(function() {
 
 $("#add-class-button").click(function() {
   $("#sentence").addClass("text-fade");
+  classEnabled = true;
   $(this).addClass("disabled");
   $("#remove-class-button").removeClass("disabled");
   $("#display-text").text("addClass(text-fade)");
@@ -47,14 +49,25 @@ $("#add-class-button").click(function() {
 
 $("#remove-class-button").click(function() {
   $("#sentence").removeClass("text-fade");
+  classEnabled = false;
   $(this).addClass("disabled");
   $("#add-class-button").removeClass("disabled");
   $("#display-text").text("removeClass(text-fade)");
 });
 
 $("#toggle-class-button").click(function() {
-  $("#sentence").toggleClass("text-fade");
-  $("#display-text").text("toggleClass('text-class')");
+  classEnabled = !classEnabled;
+  if (classEnabled) {
+    $("#add-class-button").addClass("disabled");
+    $("#remove-class-button").removeClass("disabled");
+    $("#sentence").toggleClass("text-fade");
+    $("#display-text").text("toggleClass('text-fade')");
+  } else {
+    $("#remove-class-button").addClass("disabled");
+    $("#add-class-button").removeClass("disabled");
+    $("#sentence").toggleClass("text-fade");
+    $("#display-text").text("toggleClass('text-fade')");
+  }
 });
 
 $("#keypress-input").keypress(function(event) {

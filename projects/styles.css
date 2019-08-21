@@ -72,20 +72,11 @@ img {
   padding: 0;
 }
 
-.project-button {
-  display: block;
-  width: 300px;
-}
-
 @media (min-width: 1400px) {
   .thumbnail {
     height: 500px;
     width: 500px;
     padding: 0;
-  }
-  .project-button {
-    display: block;
-    width: 500px;
   }
 }
 
