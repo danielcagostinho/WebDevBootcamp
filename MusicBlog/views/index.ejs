@@ -1,0 +1,27 @@
+<% include partials/header %>
+<style>
+.media img {
+  width: 200px;
+}
+</style>
+<div class="container">
+  <div class="jumbotron">
+    <h1>
+    Welcome to my music blog
+    </h1>
+    <a href="/posts/new"class="btn btn-outline-primary">Create a new blog post</a>
+  </div>
+  
+  <div class="row">
+    <% blogPosts.forEach((blogPost) => { %>
+      <div class="media">
+        <img src="<%= blogPost.image %>" class="mr-3" alt="...">
+        <div class="media-body">
+          <h5 class="mt-0"><%= blogPost.name %> <span class="ml-auto" style="color: gray; display: inline"><em>Daniel Agostinho</em></span></h5>
+          Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus.
+        </div>
+      </div>
+    <% }) %>
+  </div>
+</div>
+<% include partials/footer %>
