@@ -1,27 +1,65 @@
-<% include partials/header %>
-<style>
-.media img {
-  width: 200px;
-}
-</style>
-<div class="container">
-  <div class="jumbotron">
-    <h1>
-    Welcome to my music blog
-    </h1>
-    <a href="/posts/new"class="btn btn-outline-primary">Create a new blog post</a>
-  </div>
-  
-  <div class="row">
-    <% blogPosts.forEach((blogPost) => { %>
-      <div class="media">
-        <img src="<%= blogPost.image %>" class="mr-3" alt="...">
-        <div class="media-body">
-          <h5 class="mt-0"><%= blogPost.name %> <span class="ml-auto" style="color: gray; display: inline"><em>Daniel Agostinho</em></span></h5>
-          Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus.
-        </div>
+<html>
+  <head>
+    <title>Music Blog</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="/stylesheets/index.css">
+  </head>
+  <body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+      <a class="navbar-brand" href="/">Music Blog</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse navbar-right" id="navbarSupportedContent">
+        <ul class="navbar-nav ml-auto">
+          <li class="nav-item active">
+            <a class="nav-link" href="#">Sign Up <span class="sr-only">(current)</span></a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Login</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Log Out</a>
+          </li>
+        </ul>
       </div>
-    <% }) %>
+    </nav>
+
+<div class="jumbotron">
+      <h1>
+      Welcome to my music blog
+      </h1>
+      <a href="/posts/new"class="btn btn-outline-primary">Create a new blog post</a>
+  </div>
+<div class="container blog-container ">
+
+  
+      <h1 class="text-center blog-title">Latest Reviews</h1>
+      <% blogPosts.forEach((blogPost) => { %>
+        <div class="row blog-entry d-flex align-items-center">
+          <div class="col-4 blog-img">
+            <img
+              src="<%=blogPost.image%>"
+            />
+          </div>
+          <div class="col-8 ">
+            <h4><%=blogPost.name %></h4>
+            <h5><%=blogPost.artist %></h5>
+            <p class="description">
+              Error iusto minima aut blanditiis iste eum quo, sapiente recusandae
+              inventore repellendus reprehenderit! Maiores vitae porro iure
+              eveniet similique ...
+              <a href="/posts/<%= blogPost._id%>"
+                class="btn btn-outline-dark float-right more-button align-self-end"
+              >
+                Read More
+              </a>
+            </p>
+          </div>
+        </div>
+      <% }) %>
+    </div>
   </div>
 </div>
 <% include partials/footer %>

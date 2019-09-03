@@ -1,0 +1,17 @@
+body {
+  font-family: "Muli", sans-serif;
+}
+
+.blog-content {
+  padding: 10px;
+  margin: 0 auto;
+  margin-top: 40px;
+  height: 70vh;
+  overflow: auto;
+}
+
+.blog-container {
+  max-width: 1500px;
+  width: 80%;
+  margin-top: 20px;
+}

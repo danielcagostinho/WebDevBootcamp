@@ -1,0 +1,41 @@
+body {
+  font-family: "Muli", sans-serif;
+}
+
+.blog-container {
+  width: 75%;
+  border: 2px solid gray;
+  margin-top: 40px;
+  padding-bottom: 50px;
+  border-radius: 10px;
+}
+
+.blog-title {
+  position: relative;
+  background-color: white;
+  top: -25px;
+  margin: 0 auto;
+  width: 300px;
+}
+
+.blog-entry {
+  height: 300px;
+  margin: 20px;
+}
+
+.blog-entry:hover {
+  box-shadow: 10px 10px 5px grey;
+  transition: box-shadow 0.5s;
+}
+
+.blog-entry img {
+  width: 100%;
+  margin: 0;
+}
+
+.more-button {
+  margin-left: 20px;
+  display: inline-block;
+  color: black;
+  margin-top: 20px;
+}

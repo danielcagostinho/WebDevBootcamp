@@ -5,12 +5,20 @@
 </h1>
 <form action="/posts" method="POST">
   <div class="form-group">
-    <label for="blogTitleInput">Blog Post Title</label>
-    <input name="name" type="text" class="form-control" id="blogTitleInput" placeholder="Blog Title">
+    <label for="nameInput">Album Name</label>
+    <input name="name" type="text" class="form-control" id="nameInput" placeholder="Blog Title">
   </div>
   <div class="form-group">
-    <label for="imageURLInput">Blog Post Image URL</label>
+    <label for="imageURLInput">Album Art</label>
     <input name="image" type="text" class="form-control" id="imageURLInput" placeholder="Image URL">
+  </div>
+  <div class="form-group">
+    <label for="artistInput">Artist</label>
+    <input name="artist" type="text" class="form-control" id="artistInput" placeholder="Artist Name">
+  </div>
+  <div class="form-group">
+    <label for="reviewInput">Review</label>
+    <input name="review" type="text" class="form-control" id="reviewInput" placeholder="Review Text">
   </div>
   <button class="btn btn-outline-success">Submit</button>
 </form>

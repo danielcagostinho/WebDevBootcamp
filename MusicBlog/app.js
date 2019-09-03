@@ -1,27 +1,26 @@
-var express = require("express");
-var app = express();
-var bodyParser = require("body-parser");
+// Requires
+var bodyParser = require("body-parser"),
+  mongoose = require("mongoose"),
+  express = require("express"),
+  app = express();
+
+// App config and DB set
+var mongoURL =
+  "mongodb+srv://blogadmin:13LnqF03dlpJXCF6@cluster0-96ptv.mongodb.net/music_blog?retryWrites=true&w=majority";
+mongoose.connect(mongoURL, { useNewUrlParser: true });
 
 app.set("view engine", "ejs");
 app.use(bodyParser.urlencoded({ extended: true }));
+app.use(express.static(__dirname + "/public"));
 
-var blogPosts = [
-  {
-    name: "Time Out",
-    image:
-      "https://i.pinimg.com/originals/0e/65/f3/0e65f359b7e82f2d8343c68f1dd57ceb.jpg"
-  },
-  {
-    name: "Blue Train",
-    image:
-      "https://musiczone.ie/wp-content/uploads/2014/10/p_9_7_9_979-thickbox_default-john-coltrane-blue-train.jpg"
-  },
-  {
-    name: "Kind of Blue",
-    image:
-      "https://petesmusic.co.uk/image/data/R-379868-1345728320-4447.jpeg.jpg"
-  }
-];
+var blogPostSchema = new mongoose.Schema({
+  name: String,
+  image: String,
+  artist: String,
+  review: String
+});
+
+var BlogPost = mongoose.model("BlogPost", blogPostSchema);
 
 // Root Route
 app.get("/", (req, res) => {
@@ -30,7 +29,13 @@ app.get("/", (req, res) => {
 
 // Index Route
 app.get("/posts", (req, res) => {
-  res.render("index", { blogPosts: blogPosts });
+  BlogPost.find({}, (err, foundBlogPosts) => {
+    if (err) {
+      console.log(err);
+    } else {
+      res.render("index", { blogPosts: foundBlogPosts });
+    }
+  });
 });
 
 // New Route
@@ -40,11 +45,30 @@ app.get("/posts/new", (req, res) => {
 
 // Create Route
 app.post("/posts", (req, res) => {
-  console.log(req.body);
   var name = req.body.name;
   var image = req.body.image;
-  blogPosts.push({ name: name, image: image });
-  res.redirect("/posts");
+  var artist = req.body.artist;
+  var review = req.body.review;
+  var blogPost = { name: name, image: image, artist: artist, review: review };
+  BlogPost.create(blogPost, (err, newBlogPost) => {
+    if (err) {
+      console.log("err");
+      res.redirect("/posts");
+    } else {
+      res.redirect("/posts");
+    }
+  });
+});
+
+// Show Route
+app.get("/posts/:id", (req, res) => {
+  BlogPost.findById(req.params.id, (err, foundBlogPost) => {
+    if (err) {
+      console.log(err);
+    } else {
+      res.render("show", { blogPost: foundBlogPost });
+    }
+  });
 });
 
 app.listen(3000, () => {
