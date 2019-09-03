@@ -45,6 +45,13 @@
         <%=blogPost.review %>
         </p>
       </div>
+      <div class="comment-section">
+        <% blogPost.comments.forEach((comment) =>{%>
+	        <p>
+		        <strong><%= comment.author %></strong> - <%= comment.text %>
+	        </p>
+        <% }) %>
+      </div>
     </div>
 
     

@@ -2,7 +2,10 @@
 var bodyParser = require("body-parser"),
   mongoose = require("mongoose"),
   express = require("express"),
-  app = express();
+  BlogPost = require("./models/blogPost");
+app = express();
+
+var seedDB = require("./seeds");
 
 // App config and DB set
 var mongoURL =
@@ -13,14 +16,7 @@ app.set("view engine", "ejs");
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.static(__dirname + "/public"));
 
-var blogPostSchema = new mongoose.Schema({
-  name: String,
-  image: String,
-  artist: String,
-  review: String
-});
-
-var BlogPost = mongoose.model("BlogPost", blogPostSchema);
+seedDB();
 
 // Root Route
 app.get("/", (req, res) => {
@@ -62,13 +58,16 @@ app.post("/posts", (req, res) => {
 
 // Show Route
 app.get("/posts/:id", (req, res) => {
-  BlogPost.findById(req.params.id, (err, foundBlogPost) => {
-    if (err) {
-      console.log(err);
-    } else {
-      res.render("show", { blogPost: foundBlogPost });
-    }
-  });
+  BlogPost.findById(req.params.id)
+    .populate("comments")
+    .exec((err, foundBlogPost) => {
+      if (err) {
+        console.log(err);
+      } else {
+        console.log(foundBlogPost);
+        res.render("show", { blogPost: foundBlogPost });
+      }
+    });
 });
 
 app.listen(3000, () => {
