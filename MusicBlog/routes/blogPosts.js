@@ -14,17 +14,27 @@ router.get("/", (req, res) => {
 });
 
 // New Route
-router.get("/new", (req, res) => {
+router.get("/new", isLoggedIn, (req, res) => {
   res.render("blogPosts/new");
 });
 
 // Create Route
-router.post("/", (req, res) => {
+router.post("/", isLoggedIn, (req, res) => {
   var name = req.body.name;
   var image = req.body.image;
   var artist = req.body.artist;
   var review = req.body.review;
-  var blogPost = { name: name, image: image, artist: artist, review: review };
+  var author = {
+    id: req.user.id,
+    username: req.user.username
+  };
+  var blogPost = {
+    name: name,
+    image: image,
+    artist: artist,
+    review: review,
+    author: author
+  };
   BlogPost.create(blogPost, (err, newBlogPost) => {
     if (err) {
       console.log("err");
@@ -47,5 +57,12 @@ router.get("/:id", (req, res) => {
       }
     });
 });
+
+function isLoggedIn(req, res, next) {
+  if (req.isAuthenticated()) {
+    return next();
+  }
+  res.redirect("/login");
+}
 
 module.exports = router;

@@ -19,7 +19,6 @@ router.post("/", isLoggedIn, (req, res) => {
   var text = req.body.comment.text;
   var author = req.user._id;
   var comment = { text: text, author: author };
-  console.log(req.body.comment);
   BlogPost.findById(req.params.id, (err, foundBlogPost) => {
     if (err) {
       console.log(err);
@@ -29,6 +28,9 @@ router.post("/", isLoggedIn, (req, res) => {
         if (err) {
           console.log(err);
         } else {
+          newComment.author.id = req.user._id;
+          newComment.author.username = req.user.username;
+          newComment.save();
           foundBlogPost.comments.push(newComment);
           foundBlogPost.save();
           res.redirect("/posts/" + foundBlogPost._id);
