@@ -1,74 +1,51 @@
 // Requires
-var bodyParser = require("body-parser"),
+var LocalStrategy = require("passport-local"),
+  BlogPost = require("./models/blogPost"),
+  bodyParser = require("body-parser"),
   mongoose = require("mongoose"),
+  passport = require("passport"),
+  Comment = require("./models/comment"),
   express = require("express"),
-  BlogPost = require("./models/blogPost");
-app = express();
+  seedDB = require("./seeds"),
+  User = require("./models/user"),
+  app = express();
 
-var seedDB = require("./seeds");
+// Requiring Routes
+var commentRoutes = require("./routes/comments");
+var blogPostRoutes = require("./routes/blogPosts");
+var indexRoutes = require("./routes/index");
 
-// App config and DB set
+// App config and DB setup
 var mongoURL =
   "mongodb+srv://blogadmin:13LnqF03dlpJXCF6@cluster0-96ptv.mongodb.net/music_blog?retryWrites=true&w=majority";
 mongoose.connect(mongoURL, { useNewUrlParser: true });
-
-app.set("view engine", "ejs");
 app.use(bodyParser.urlencoded({ extended: true }));
+app.set("view engine", "ejs");
 app.use(express.static(__dirname + "/public"));
+//seedDB();
 
-seedDB();
+// PASSPORT CONFIGURATION
+app.use(
+  require("express-session")({
+    secret: "Daniel is so cool",
+    resave: false,
+    saveUninitialized: false
+  })
+);
+app.use(passport.initialize());
+app.use(passport.session());
+passport.use(new LocalStrategy(User.authenticate()));
+passport.serializeUser(User.serializeUser());
+passport.deserializeUser(User.deserializeUser());
 
-// Root Route
-app.get("/", (req, res) => {
-  res.render("landing");
+app.use((req, res, next) => {
+  res.locals.currentUser = req.user;
+  next();
 });
 
-// Index Route
-app.get("/posts", (req, res) => {
-  BlogPost.find({}, (err, foundBlogPosts) => {
-    if (err) {
-      console.log(err);
-    } else {
-      res.render("index", { blogPosts: foundBlogPosts });
-    }
-  });
-});
-
-// New Route
-app.get("/posts/new", (req, res) => {
-  res.render("new");
-});
-
-// Create Route
-app.post("/posts", (req, res) => {
-  var name = req.body.name;
-  var image = req.body.image;
-  var artist = req.body.artist;
-  var review = req.body.review;
-  var blogPost = { name: name, image: image, artist: artist, review: review };
-  BlogPost.create(blogPost, (err, newBlogPost) => {
-    if (err) {
-      console.log("err");
-      res.redirect("/posts");
-    } else {
-      res.redirect("/posts");
-    }
-  });
-});
-
-// Show Route
-app.get("/posts/:id", (req, res) => {
-  BlogPost.findById(req.params.id)
-    .populate("comments")
-    .exec((err, foundBlogPost) => {
-      if (err) {
-        console.log(err);
-      } else {
-        console.log(foundBlogPost);
-        res.render("show", { blogPost: foundBlogPost });
-      }
-    });
-});
+app.use(indexRoutes);
+app.use("/posts/:id/comments", commentRoutes);
+app.use("/posts", blogPostRoutes);
 
 app.listen(3000, () => {
   console.log("Server is running on port 3000");

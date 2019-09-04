@@ -1,0 +1,39 @@
+<% include ../partials/header-html %>
+<link rel="stylesheet" href="/stylesheets/index.css">
+<% include ../partials/header-nav %>
+
+<div class="jumbotron">
+      <h1>
+      Welcome to my music blog
+      </h1>
+      <a href="/posts/new"class="btn btn-outline-primary">Create a new blog post</a>
+  </div>
+<div class="container blog-container">
+      <h1 class="text-center blog-title">Latest Reviews</h1>
+      <% blogPosts.forEach((blogPost) => { %>
+        <div class="row blog-entry d-flex align-items-center">
+          <div class="col-4 blog-img">
+            <img
+              src="<%=blogPost.image%>"
+            />
+          </div>
+          <div class="col-8 ">
+            <h4><%=blogPost.name %></h4>
+            <h5><%=blogPost.artist %></h5>
+            <p class="description">
+              Error iusto minima aut blanditiis iste eum quo, sapiente recusandae
+              inventore repellendus reprehenderit! Maiores vitae porro iure
+              eveniet similique ...
+              <a href="/posts/<%= blogPost._id%>"
+                class="btn btn-outline-dark float-right more-button align-self-end"
+              >
+                Read More
+              </a>
+            </p>
+          </div>
+        </div>
+      <% }) %>
+    </div>
+  </div>
+</div>
+<% include ../partials/footer %>

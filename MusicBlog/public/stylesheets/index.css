@@ -1,12 +1,12 @@
 body {
-  font-family: "Muli", sans-serif;
+  font-family: "Muli", Arial;
 }
 
 .blog-container {
   width: 75%;
-  border: 2px solid gray;
+  border: 2px solid black;
   margin-top: 40px;
-  padding-bottom: 50px;
+  padding: 0px 20px 50px 20px;
   border-radius: 10px;
 }
 
@@ -20,11 +20,10 @@ body {
 
 .blog-entry {
   height: 300px;
-  margin: 20px;
 }
 
 .blog-entry:hover {
-  box-shadow: 10px 10px 5px grey;
+  box-shadow: 5px 5px 5px grey;
   transition: box-shadow 0.5s;
 }
 
